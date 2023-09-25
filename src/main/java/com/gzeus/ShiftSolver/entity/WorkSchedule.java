@@ -5,6 +5,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.stream.Collectors;
 
+
+// class for calculating the work schedule. Method accessed through the ShiftRepository
 public class WorkSchedule {
 
 
@@ -110,21 +112,17 @@ public class WorkSchedule {
     private int getHighestNumberOfShifts() {
 
         return highestNumberOfShifts;
-
     }
 
     private int getAvgNumberOfShifts() {
 
         if (employees.isEmpty()) {
             return 0;
-
         }
-
         return totalNumberOfShifts / employees.size();
-
-
     }
 
+    // print formatted shift schedule into console
     public void printSchedule() {
 
         calculateSchedule();
@@ -132,16 +130,16 @@ public class WorkSchedule {
         schedule.forEach((date, employee) ->
         {
             if (employee == null) {
-//                System.out.println(dateTimeFormatter.format(date) + ": " + "Holiday" );
-                System.out.printf("%-20s: Holiday%n", dateTimeFormatter.format(date));
+
+                System.out.printf("%-20s: Public Holiday%n", dateTimeFormatter.format(date));
             } else {
-//                System.out.println(dateTimeFormatter.format(date) + ": " + employee.getFullName() + " (celkový počet směn: " + employee.getShiftsInCurrentPeriod() +")" );
+
                 System.out.printf("%-20s: %s%n", dateTimeFormatter.format(date), employee.getFullName());
             }
 
         });
         System.out.println("-------------------");
-        System.out.println("POČET SMĚN ZA OBDOBÍ NA OSOBU");
+        System.out.println("Number of shifts in a given month for each employee: ");
         System.out.println("-------------------");
 
         employees.forEach(s -> {
@@ -153,10 +151,8 @@ public class WorkSchedule {
                 .count();
 
         System.out.println("-------------------");
-        System.out.printf("CELKOVÝ POČET SMĚN: %d%n", totalShifts);
+        System.out.printf("Total number of assigned shifts in the given month: %d%n", totalShifts);
         System.out.println("-------------------");
-
-
     }
 
     public void manuallyAddShifts(Map<LocalDate, EmployeeHolidayShift> shifts) {

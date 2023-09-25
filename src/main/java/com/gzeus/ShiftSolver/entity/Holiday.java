@@ -2,9 +2,9 @@ package com.gzeus.ShiftSolver.entity;
 
 
 import jakarta.persistence.*;
-
 import java.time.LocalDate;
 
+// class for holidays (Paid time off) for each employee
 @Entity
 @Table(name = "holidays")
 public class Holiday {

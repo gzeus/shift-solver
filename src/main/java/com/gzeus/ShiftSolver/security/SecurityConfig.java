@@ -28,7 +28,7 @@ public class SecurityConfig {
                 config
                         .requestMatchers(HttpMethod.GET, "/api/shifts", "api/employees/", "api/employees/**").hasRole("EMPLOYEE")
                         .requestMatchers(HttpMethod.GET, "/api/shifts/**", "api/employees/", "api/employees/**").hasRole("EMPLOYEE")
-                        .requestMatchers(HttpMethod.POST, "/api/shifts", "api/employees/", "api/employees/**").hasRole("MANAGER")
+                        .requestMatchers(HttpMethod.POST, "/api/shifts","/api/shifts/**", "api/employees/", "api/employees/**").hasRole("MANAGER")
                         .requestMatchers(HttpMethod.PUT, "/api/shifts", "api/employees/", "api/employees/**").hasRole("MANAGER")
                         .requestMatchers(HttpMethod.DELETE, "/api/shifts/**", "api/employees/", "api/employees/**").hasRole("ADMIN")
 

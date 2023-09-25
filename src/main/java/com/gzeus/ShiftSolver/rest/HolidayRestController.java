@@ -18,6 +18,8 @@ public class HolidayRestController {
         this.holidayService = holidayService;
     }
 
+
+    // display all holidays for an employee that are later than today
     @GetMapping("/api/employees/{employeeId}/holidays")
     public String findAllById(@PathVariable int employeeId){
 
@@ -34,8 +36,6 @@ public class HolidayRestController {
                     sb.append(holiday.getStartDate()).append(" - ").append(holiday.getEndDate()).append("\n");
                 }
             }
-
-
         } else {
             sb.append(" has no planned holiday");
         }

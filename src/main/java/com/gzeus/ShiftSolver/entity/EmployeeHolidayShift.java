@@ -5,16 +5,20 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+
+// Class that temporarily joins data from Employee, Holiday and Shift tables for calculations within the app
+// Does not have its own Database table
+
 public class EmployeeHolidayShift extends Employee {
 
-
+    //
     private static final String DATE_PATTERN = "EEEE dd. MMMM";
     private static final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(DATE_PATTERN);
 
 
+    // counts total number of shifts in a given month (period) - used for calculations
     private int shiftsInCurrentPeriod;
     private List<LocalDate> holidays;
-
     private List<LocalDate> shifts;
 
 
@@ -71,7 +75,6 @@ public class EmployeeHolidayShift extends Employee {
         return holidays.contains(date);
 
     }
-
     public int getShiftsInCurrentPeriod() {
         return shiftsInCurrentPeriod;
     }

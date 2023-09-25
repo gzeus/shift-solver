@@ -3,6 +3,7 @@ package com.gzeus.ShiftSolver.service;
 import com.gzeus.ShiftSolver.dao.ShiftRepository;
 import com.gzeus.ShiftSolver.entity.Shift;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -39,7 +40,7 @@ public class ShiftServiceImpl implements ShiftService{
         if (result.isPresent()){
             shift =result.get();
         } else {
-            throw new RuntimeException("Did not find shift date: " + theId);
+            throw new ResourceNotFoundException("Did not find shift date: " + theId);
         }
 
         return shift;

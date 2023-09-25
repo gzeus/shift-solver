@@ -3,6 +3,7 @@ package com.gzeus.ShiftSolver.service;
 import com.gzeus.ShiftSolver.dao.EmployeeRepository;
 import com.gzeus.ShiftSolver.entity.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -38,7 +39,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         if (result.isPresent()){
             theEmployee =result.get();
         } else {
-            throw new RuntimeException("Did not find employee id: " + theId);
+            throw new ResourceNotFoundException("Did not find employee id: " + theId);
         }
 
         return theEmployee;

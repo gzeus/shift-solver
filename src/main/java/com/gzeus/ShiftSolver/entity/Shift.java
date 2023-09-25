@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
+
+// class for holding individual shifts assigned to employees. Only 1 shift per day, for simplicity
 @Entity
 @Table(name="shifts")
 public class Shift {

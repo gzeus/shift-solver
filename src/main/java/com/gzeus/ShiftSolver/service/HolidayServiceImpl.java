@@ -3,6 +3,7 @@ package com.gzeus.ShiftSolver.service;
 import com.gzeus.ShiftSolver.dao.HolidayRepository;
 import com.gzeus.ShiftSolver.entity.Holiday;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -36,7 +37,7 @@ public class HolidayServiceImpl implements HolidayService{
         if (result.isPresent()){
             holiday =result.get();
         } else {
-            throw new RuntimeException("Did not find holiday id: " + theId);
+            throw new ResourceNotFoundException("Did not find holiday id: " + theId);
         }
 
         return holiday;
